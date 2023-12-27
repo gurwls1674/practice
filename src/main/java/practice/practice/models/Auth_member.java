@@ -17,7 +17,7 @@ public class Auth_member {
             inverseJoinColumns = @JoinColumn(name="auth_key"))
     private Long auth_key;
 
-    @ManyToMany
+    @OneToOne
     @JoinTable(
             name = "member",
             joinColumns = @JoinColumn(name="username"),
