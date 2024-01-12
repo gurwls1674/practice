@@ -174,7 +174,10 @@
                         <a class="nav-link" href="#">사이트생성</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/account/login">로그인</a>
+                        <a class="nav-link" href="/account/login" th:if="${ not #strings.isEmpty(username)}"
+                            >로그인</a>
+                        <a class="nav-link" href="/account/logout" th:if="${ #strings.isEmpty(username)}"
+                           th:text="${username}" >로그아웃</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/signUp/checkOut">회원가입</a>

@@ -9,18 +9,12 @@ import java.util.List;
 @Entity
 public class Auth_member {
 
-    @Id
-    @GeneratedValue
-    @JoinTable(
-            name = "auth",
-            joinColumns = @JoinColumn(name="auth_key"),
-            inverseJoinColumns = @JoinColumn(name="auth_key"))
-    private Long auth_key;
+    @EmbeddedId
+    private AuthMemberId authMemberId;
 
-    @OneToOne
-    @JoinTable(
-            name = "member",
-            joinColumns = @JoinColumn(name="username"),
-            inverseJoinColumns = @JoinColumn(name="member_id"))
-    private String member_id;
+    @ManyToOne
+    @MapsId("memberId")
+    @JoinColumn(name = "member_id")
+    private Member member;
+
 }

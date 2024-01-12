@@ -24,7 +24,7 @@ public class SignUpServiceImpl implements SignUpService {
         member.setPassword(passwordEncoder.encode(member.getPassword()));
         memberRepository.save(member);
         Auth_member auth_member = new Auth_member();
-        auth_member.setMember_id(member.getUsername());
+        auth_member.setMember(member);
         System.out.println("가입 시도 username : "+member.getUsername());
         auth_memberRepogitory.save(auth_member);
     };
